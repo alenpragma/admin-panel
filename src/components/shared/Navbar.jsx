@@ -1,25 +1,22 @@
 import { Link } from "react-router-dom";
 import icon from "../../assets/goodmorning.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
+  let nav = useNavigate()
   const navLinks = [
     {
-      id: "/",
-      title: "Home",
+      id: "/dashboard/home",
+      title: "Dashboard",
     },
+ 
     {
-      id: "admin-panel",
-      title: "admin-panel",
+      id: "/dashboard/add-product",
+      title: "Add Product",
     },
-    {
-      id: "add-product",
-      title: "add-product",
-    },
-    {
-      id: "package",
-      title: "Package",
-    },
+    
   ];
 
   const [toggle, setToggle] = useState(false);
@@ -69,6 +66,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <b className="cursor-pointer" onClick={()=>{localStorage.removeItem("login");nav("/")}}>logout</b>
     </div>
 
     // <div className="w-full">
