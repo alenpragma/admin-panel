@@ -25,7 +25,7 @@ const AddProduct = () => {
   const handleAddProduct = async () => {
     // Send a POST request to the endpoint with the form data
     await axios
-      .post("http://localhost:8000/api/v1/products/createproducts", formData)
+      .post("https://goodmorning-aid-backend.onrender.com/api/v1/products/createproducts", formData)
       .then((res) => {
         if (res.data.error === "product upload successfully") {
           setError(res.data.error);

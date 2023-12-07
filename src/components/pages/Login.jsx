@@ -8,18 +8,22 @@ const Login = () => {
   let nav = useNavigate();
   let [secretKey, setSecretKey] = useState("");
   let [error, setError] = useState("");
+  let [loading,setLoading] = useState(false)
 
   let handleLogin = () => {
-    
+    setLoading(true)
     axios
-      .post("http://localhost:8000/api/v1/auth/login", {secretKey})
+      .post("https://goodmorning-aid-backend.onrender.com/api/v1/auth/login", {
+        secretKey,
+      })
       .then((res) => {
+        setLoading(false)
         console.log(res);
         if (res.data.error == "Login Success") {
           nav("/dashboard/home");
           setError("");
           setSecretKey("");
-          localStorage.setItem("login","true")
+          localStorage.setItem("login", "true");
         } else if (res.data.error == "Credential error") {
           setError(res.data.error);
         }
@@ -54,12 +58,16 @@ const Login = () => {
                 onChange={(e) => setSecretKey(e.target.value)}
                 className="w-[229px] h-[45px] rounded-3xl shadow-lg shadow-slate-400 py-2 px-3 outline-none "
               />
-              <button
-                onClick={handleLogin}
-                className="rounded-full bg-[#8CC84B] hover:bg-[#80b744] text-white text-[14px] w-[115px] h-[45px]"
-              >
-                Enter
-              </button>
+              {loading ? (
+                "Loading..."
+              ) : (
+                <button
+                  onClick={handleLogin}
+                  className="rounded-full bg-[#8CC84B] hover:bg-[#80b744] text-white text-[14px] w-[115px] h-[45px]"
+                >
+                  Enter
+                </button>
+              )}
             </div>
           </div>
         </Container>
