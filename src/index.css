@@ -6,3 +6,7 @@
 .input-style {
   @apply h-[45px] px-3 py-2 rounded-2xl shadow-lg shadow-slate-400 outline-1 outline-slate-300
 }
+
+.active {
+  @apply border-b-2 border-b-[#000000] 
+}
