@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import icon1 from "../../assets/admin-icon/eye.svg";
+import icon2 from "../../assets/admin-icon/edit.svg";
+import icon3 from "../../assets/admin-icon/delete.svg";
 
 const AddProduct = () => {
   // State to manage form input values
@@ -103,9 +106,73 @@ const AddProduct = () => {
       </div>
 
       {/* product list */}
-      <div className="w-7xl bg-slate-300 h-32 flex justify-between items-center">
-        <div className="w-[70%] h-20">sdfasdf</div>
-        <div className="w-[20%] h-20">sdfasdfsad</div>
+      <div className="flex w-[60%] mx-auto flex-col gap-5 items-center mt-[50px]">
+        <div className="w-full bg-[#F0F0F0] rounded-full h-auto flex justify-between items-center p-3 shadow-md shadow-slate-500">
+          <div className="w-[70%] flex items-center justify-start gap-4">
+            <img
+              src="https://i.ibb.co/LSYS36V/male-man-icon.png"
+              className="w-14 rounded-3xl"
+              alt=""
+            />
+            <div className="text-[#5E5E5E]">
+              <h2 className="text-[14px] font-semibold">First Aid Box</h2>
+              <p className="leading-4">
+                is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s
+              </p>
+            </div>
+          </div>
+          <div className="w-[20%] flex justify-center items-center gap-5">
+            <img src={icon1} alt="" className="w-5 cursor-pointer" />
+            <img src={icon2} alt="" className="w-5 cursor-pointer" />
+            <img src={icon3} alt="" className="w-5 cursor-pointer" />
+          </div>
+        </div>
+        <div className="w-full bg-[#F0F0F0] rounded-full h-auto flex justify-between items-center p-3 shadow-md shadow-slate-500">
+          <div className="w-[70%] flex items-center justify-start gap-4">
+            <img
+              src="https://i.ibb.co/LSYS36V/male-man-icon.png"
+              className="w-14 rounded-3xl"
+              alt=""
+            />
+            <div className="text-[#5E5E5E]">
+              <h2 className="text-[14px] font-semibold">First Aid Box</h2>
+              <p className="leading-4">
+                is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s
+              </p>
+            </div>
+          </div>
+          <div className="w-[20%] flex justify-center items-center gap-5">
+            <img src={icon1} alt="" className="w-5 cursor-pointer" />
+            <img src={icon2} alt="" className="w-5 cursor-pointer" />
+            <img src={icon3} alt="" className="w-5 cursor-pointer" />
+          </div>
+        </div>
+        <div className="w-full bg-[#F0F0F0] rounded-full h-auto flex justify-between items-center p-3 shadow-md shadow-slate-500">
+          <div className="w-[70%] flex items-center justify-start gap-4">
+            <img
+              src="https://i.ibb.co/LSYS36V/male-man-icon.png"
+              className="w-14 rounded-3xl"
+              alt=""
+            />
+            <div className="text-[#5E5E5E]">
+              <h2 className="text-[14px] font-semibold">First Aid Box</h2>
+              <p className="leading-4">
+                is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s
+              </p>
+            </div>
+          </div>
+          <div className="w-[20%] flex justify-center items-center gap-5">
+            <img src={icon1} alt="" className="w-5 cursor-pointer" />
+            <img src={icon2} alt="" className="w-5 cursor-pointer" />
+            <img src={icon3} alt="" className="w-5 cursor-pointer" />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ const Navbar = () => {
           ))}
           <div>
             <IoLogOut
-              className="cursor-pointer text-black text-[30px]"
+              className="cursor-pointer text-black text-[30px] hover:text-slate-500 duration-300"
               onClick={() => {
                 localStorage.removeItem("login");
                 nav("/");
