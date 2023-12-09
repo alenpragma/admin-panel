@@ -100,15 +100,13 @@ const AddProduct = () => {
             </button>
           </div>
         </div>
-
-        
       </div>
 
       {/* product list */}
       <div className="w-7xl bg-slate-300 h-32 flex justify-between items-center">
-          <div className="w-[70%] h-20">sdfasdf</div>
-          <div className="w-[20%] h-20">sdfasdfsad</div>
-        </div>
+        <div className="w-[70%] h-20">sdfasdf</div>
+        <div className="w-[20%] h-20">sdfasdfsad</div>
+      </div>
     </div>
   );
 };
