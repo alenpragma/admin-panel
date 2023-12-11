@@ -71,13 +71,13 @@ const Navbar = () => {
           <div
             className={`${
               toggle ? "flex" : "hidden"
-            } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+            } p-6 bg-slate-300 absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
           >
-            <ul className="list-none flex flex-col justify-end items-center flex-1">
+            <ul className="list-none flex flex-col justify-end items-center flex-1 gap-5">
               {navLinks.map((nav, i) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-normal cursor-pointer text-[16px] text-black ${
+                  className={`font-poppins font-normal cursor-pointer text-[16px] text-black cursor-pointer ${
                     i === navLinks.length - 1 ? "mr-0" : "mb-4"
                   }mr-10`}
                 >
