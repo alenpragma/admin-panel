@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Container from "../container/Container";
 import logo from "../../assets/goodmorning.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +32,6 @@ const Login = () => {
   return (
     <div>
       <div className="py-[50px] md:py-[80px] bg-[#f6f6f6]">
-        <Container>
           <div className="flex flex-col justify-center items-center gap-5">
             <div>
               <img src={logo} className="w-[500px] h-auto " />
@@ -70,7 +68,6 @@ const Login = () => {
               )}
             </div>
           </div>
-        </Container>
       </div>
     </div>
   );
