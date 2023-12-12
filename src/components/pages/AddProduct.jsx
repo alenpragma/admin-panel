@@ -83,7 +83,10 @@ const AddProduct = () => {
 
   useEffect(() => {
     axios
-      .get("https://goodmorning-aid-backend.onrender.com/api/v1/products/allproducts", { headers })
+      .get(
+        "https://goodmorning-aid-backend.onrender.com/api/v1/products/allproducts",
+        { headers }
+      )
       .then((response) => {
         setAllProduct(response.data);
         console.log(response.data);
@@ -97,7 +100,10 @@ const AddProduct = () => {
 
   let handleDelete = (id) => {
     axios
-      .post("https://goodmorning-aid-backend.onrender.com/api/v1/products/deleteproducts", { id: id })
+      .post(
+        "https://goodmorning-aid-backend.onrender.com/api/v1/products/deleteproducts",
+        { id: id }
+      )
       .then((response) => {
         location.reload();
         console.log(response.data);
@@ -112,10 +118,13 @@ const AddProduct = () => {
 
   let handleUpdate = () => {
     axios
-      .post("https://goodmorning-aid-backend.onrender.com/api/v1/products/editproducts", {
-        id: updateId,
-        ...formData,
-      })
+      .post(
+        "https://goodmorning-aid-backend.onrender.com/api/v1/products/editproducts",
+        {
+          id: updateId,
+          ...formData,
+        }
+      )
       .then((response) => {
         location.reload();
         console.log(response.data);
@@ -125,7 +134,7 @@ const AddProduct = () => {
   let [modalShow, setModalShow] = useState(false);
 
   return (
-    <div className="py-[50px] md:py-[80px]">
+    <div className="py-[50px] md:py-[80px] max-w-container mx-auto">
       <div className="flex flex-col justify-center items-center gap-5">
         <h2 className="text-[#5E5E5E] text-4xl font-normal">Products</h2>
 
@@ -204,96 +213,97 @@ const AddProduct = () => {
       </div>
 
       {/* product list */}
-      <div className="flex w-[60%] mx-auto flex-col-reverse gap-5 items-center mt-[50px]">
-        {allProduct.length > 0
-          ? allProduct.map((item, index) => (
-              <>
-                <div
-                  key={index}
-                  className="w-full bg-[#F0F0F0] rounded-full h-auto flex justify-between items-center p-3 shadow-md shadow-slate-500"
-                >
-                  <div className="w-[70%] flex items-center justify-start gap-4">
-                    {index + 1}
-                    <img src={item.image} className="w-14 rounded-3xl" alt="" />
-                    <div className="text-[#5E5E5E]">
-                      <h2 className="text-[14px] font-semibold">{item.name}</h2>
-                      <p className="leading-4 text-[12px]">
-                        {item.description}
-                      </p>
-                      <span className="font-bold">Price : {item.price}</span> <br />
-                      <small>{formatTimestamp(item.createdAt)}</small>
-                    </div>
-                  </div>
-                  <div className="w-[20%] flex justify-center items-center gap-5">
-                    {editShow && index === editIndex ? (
-                      "spinner..."
-                    ) : (
-                      <>
-                        <img
-                          src={icon1}
-                          alt=""
-                          className="w-5 cursor-pointer"
-                          onClick={() => setModalShow(item)}
-                        />
-                        <img
-                          src={icon2}
-                          alt=""
-                          className="w-5 cursor-pointer"
-                          onClick={() => {
-                            setEditShow(true);
-                            setEditIndex(index);
-                            setUpdateId(item._id);
-
-                            setError("");
-                            setFormData({
-                              name: item.name,
-                              description: item.description,
-                              image: item.image,
-                              price: item.price,
-                            });
-                          }}
-                        />
-                        <img
-                          src={icon3}
-                          alt=""
-                          className="w-5 cursor-pointer"
-                          onClick={() => handleDelete(item._id)}
-                        />
-                      </>
-                    )}
+      <div className="list-style">
+        {allProduct.length > 0 ? (
+          allProduct.map((item, index) => (
+            <>
+              <div
+                key={index}
+                className="w-full bg-[#F0F0F0] rounded-full h-auto flex justify-between items-center p-3 shadow shadow-[#94A3B8]"
+              >
+                <div className="w-[70%] flex items-center justify-start gap-4">
+                  {index + 1}
+                  <img src={item.image} className="w-14 rounded-3xl" alt="" />
+                  <div className="text-[#5E5E5E]">
+                    <h2 className="text-[14px] font-semibold">{item.name}</h2>
+                    <p className="leading-4 text-[12px]">{item.description}</p>
+                    <span className="font-bold">Price : {item.price}</span>{" "}
+                    <br />
+                    <small>{formatTimestamp(item.createdAt)}</small>
                   </div>
                 </div>
-                {modalShow && (
-                  <div className="fixed w-full h-screen top-0 left-0 flex justify-center items-center bg-[#00000036] z-[9999999]">
-                    <FaRegTimesCircle
-                      className="cursor-pointer absolute top-5 right-5 text-[30px] text-white"
-                      onClick={() => setModalShow(false)}
-                    />
-                    {/* modal content start */}
-                    <div className="p-4 rounded-lg bg-white flex flex-col md:flex-row gap-y-4 md:gap-x-4">
-                      <div className="w-full md:w-[40%]">
-                        <img
-                          src={modalShow.image}
-                          className="w-full h-auto"
-                          alt=""
-                        />
-                      </div>
-                      <div className="w-full md:w-[60%] overflow-y-scroll">
-                        <h3 className="text-[30px] font-bold">{modalShow.name}</h3>
-                        <p className="mb-4">{modalShow.description}</p>
-                        <small>{formatTimestamp(modalShow.createdAt)}</small>
-                      </div>
+                <div className="w-[20%] flex justify-center items-center gap-5">
+                  {editShow && index === editIndex ? (
+                    "spinner..."
+                  ) : (
+                    <>
+                      <img
+                        src={icon1}
+                        alt=""
+                        className="w-5 cursor-pointer"
+                        onClick={() => setModalShow(item)}
+                      />
+                      <img
+                        src={icon2}
+                        alt=""
+                        className="w-5 cursor-pointer"
+                        onClick={() => {
+                          setEditShow(true);
+                          setEditIndex(index);
+                          setUpdateId(item._id);
+
+                          setError("");
+                          setFormData({
+                            name: item.name,
+                            description: item.description,
+                            image: item.image,
+                            price: item.price,
+                          });
+                        }}
+                      />
+                      <img
+                        src={icon3}
+                        alt=""
+                        className="w-5 cursor-pointer"
+                        onClick={() => handleDelete(item._id)}
+                      />
+                    </>
+                  )}
+                </div>
+              </div>
+              {modalShow && (
+                <div className="fixed w-full h-screen top-0 left-0 flex justify-center items-center bg-[#00000036] z-[9999999]">
+                  <FaRegTimesCircle
+                    className="cursor-pointer absolute top-5 right-5 text-[30px] text-white"
+                    onClick={() => setModalShow(false)}
+                  />
+                  {/* modal content start */}
+                  <div className="p-4 rounded-lg bg-white flex flex-col md:flex-row gap-y-4 md:gap-x-4">
+                    <div className="w-full md:w-[40%]">
+                      <img
+                        src={modalShow.image}
+                        className="w-full h-auto"
+                        alt=""
+                      />
+                    </div>
+                    <div className="w-full md:w-[60%] overflow-y-scroll">
+                      <h3 className="text-[30px] font-bold">
+                        {modalShow.name}
+                      </h3>
+                      <p className="mb-4">{modalShow.description}</p>
+                      <small>{formatTimestamp(modalShow.createdAt)}</small>
                     </div>
                   </div>
-                )}
-              </>
-            ))
-          : <span>No Products to show</span>}
+                </div>
+              )}
+            </>
+          ))
+        ) : (
+          <span>No Products to show</span>
+        )}
       </div>
     </div>
   );
 };
 
 export default AddProduct;
-
-

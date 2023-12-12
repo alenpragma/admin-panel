@@ -4,9 +4,21 @@
 
 
 .input-style {
-  @apply h-[45px] px-3 py-2 rounded-2xl shadow-lg shadow-slate-400 outline-1 outline-slate-300
+  @apply h-[45px] px-3 py-2 rounded-2xl shadow shadow-[#94A3B8] outline-1 outline-slate-300
 }
 
 .active {
   @apply border-b-2 border-b-[#000000] 
+}
+
+.list-style{
+  @apply flex lg:w-[70%] w-full mx-auto flex-col-reverse gap-5 items-center mt-[50px];
+}
+
+.product-item{
+  @apply bg-[#D9D9D9] text-center rounded font-semibold text-[#5E5E5E] text-[14px] w-[33%] py-2;
+}
+
+.dashboard-button{
+  @apply text-[#5E5E5E] rounded-[20px] bg-[#fff] shadow shadow-[#94A3B8] flex flex-col justify-center items-center text-center p-5
 }
