@@ -134,7 +134,7 @@ const AddProduct = () => {
   let [modalShow, setModalShow] = useState(false);
 
   return (
-    <div className="py-[50px] md:py-[80px] max-w-container mx-auto">
+    <div className="max-w-container mx-auto mt-16 lg:px-5 px-5">
       <div className="flex flex-col justify-center items-center gap-5">
         <h2 className="text-[#5E5E5E] text-4xl font-normal">Products</h2>
 

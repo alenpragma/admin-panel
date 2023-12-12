@@ -44,7 +44,7 @@ const Navbar = () => {
             <NavLink
               key={nav.id}
               to={`${nav.id}`}
-              className={`font-poppins font-normal cursor-pointer text-[14px] text-[#474747] ${
+              className={`font-poppins font-medium cursor-pointer text-[16px] text-[#474747] ${
                 i === navLinks.length - 1 ? "mr-0" : "mr-10"
               } mr-10`}
             >
